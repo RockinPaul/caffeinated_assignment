@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:caffeinated_assignment/data/coffee_repository.dart';
-import 'package:caffeinated_assignment/bloc/coffee_state.dart';
+import 'package:caffeinated_assignment/bloc/coffee/coffee_state.dart';
 import 'package:caffeinated_assignment/data/coffee_machine.dart';
 
 class CoffeeCubit extends Cubit<CoffeeState> {

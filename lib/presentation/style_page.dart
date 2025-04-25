@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:caffeinated_assignment/bloc/coffee_cubit.dart';
-import 'package:caffeinated_assignment/bloc/coffee_state.dart';
+import 'package:caffeinated_assignment/bloc/coffee/coffee_cubit.dart';
+import 'package:caffeinated_assignment/bloc/coffee/coffee_state.dart';
 import 'package:caffeinated_assignment/presentation/size_page.dart';
 import 'package:caffeinated_assignment/data/coffee_machine.dart';
 
@@ -15,7 +15,8 @@ class StylePage extends StatelessWidget {
       create: (_) => CoffeeCubit()..loadTypes(machineId),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Coffee Styles'),
+          title: const Text('Select your style'),
+          centerTitle: false,
         ),
         body: BlocBuilder<CoffeeCubit, CoffeeState>(
           builder: (context, state) {
