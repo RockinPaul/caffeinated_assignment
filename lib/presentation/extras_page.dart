@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:caffeinated_assignment/bloc/coffee/coffee_cubit.dart';
 import 'package:caffeinated_assignment/bloc/coffee/coffee_state.dart';
 import 'package:caffeinated_assignment/data/coffee_machine.dart';
 import 'package:caffeinated_assignment/data/order.dart';
 import 'package:caffeinated_assignment/bloc/order/order_cubit.dart';
 import 'package:caffeinated_assignment/bloc/order/order_state.dart';
-import 'package:caffeinated_assignment/presentation/overview_page.dart';
 
 class ExtrasPage extends StatelessWidget {
   final String machineId;
@@ -84,15 +84,7 @@ class ExtrasPage extends StatelessWidget {
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               final orderCubit = context.read<OrderCubit>();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => BlocProvider.value(
-                    value: orderCubit,
-                    child: const OverviewPage(),
-                  ),
-                ),
-              );
+              context.goNamed('overview', extra: orderCubit);
             },
             child: const Icon(Icons.arrow_forward),
           ),

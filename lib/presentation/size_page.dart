@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:caffeinated_assignment/bloc/coffee/coffee_cubit.dart';
 import 'package:caffeinated_assignment/bloc/coffee/coffee_state.dart';
 import 'package:caffeinated_assignment/data/coffee_machine.dart';
-import 'package:caffeinated_assignment/presentation/extras_page.dart';
 
 class SizePage extends StatelessWidget {
   final String machineId;
@@ -33,15 +33,12 @@ class SizePage extends StatelessWidget {
                   return ListTile(
                     title: Text(size.name),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => ExtrasPage(
-                            machineId: machineId,
-                            type: type,
-                            size: size,
-                          ),
-                        ),
+                      context.goNamed(
+                        'extras',
+                        extra: {
+                          'type': type,
+                          'size': size,
+                        },
                       );
                     },
                   );
